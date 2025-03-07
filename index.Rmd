@@ -1,0 +1,105 @@
+---
+title: "Svensk statistik - livsstil"
+author: "av William Lind"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    navbar:
+      - { title: "Till startsidan", href: "https://lindw3.github.io/svenskstatistik/", align: right }
+    vertical_layout: fill
+    theme: journal
+    css: styles.css
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(stringr)
+library(scales)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(png)
+library(data.table)
+library(magrittr)
+library(gridExtra)
+library(openxlsx)
+library(forcats)
+library(patchwork)
+library(ggthemes)
+library(plotly)
+library(ggridges)
+library(forecast)
+library(GGally)
+library(cluster)
+library(sf)
+library(ggrepel)
+library(ggtext)
+library(readxl)
+library(waffle)
+```
+
+```{r}
+### Dataprep
+
+
+
+# Tema
+ss_theme <- theme(plot.background = element_rect(fill = "#EB6864") ,
+                  plot.caption = element_text(hjust = 0) ,
+                  panel.background = element_rect(fill = "white"),
+                  axis.line.x = element_line(color = "black" , linewidth = 0.75) ,
+                  axis.line.y = element_line(color = "black" , linewidth = 0.75) ,
+                  plot.title = element_text(color = "white" , size = 16 , family = "sans"),
+                  panel.grid.major.y  = element_line(color = "#B51E17" , linetype = "dotted"),
+                  panel.grid.major.x = element_line(NULL),
+                  panel.grid.minor = element_line(NULL),
+                  legend.background = element_rect(fill = "white"),
+                  legend.key = element_rect(fill = "white"),
+                  legend.text = element_text(color = "black" , family = "sans") ,
+                  legend.title = element_text(color = "black" , family = "sans") , 
+                  text = element_text(size=12, face="plain", color = "white" , family = "sans"),
+                  axis.title = element_text(color = "white" , family = "sans" , size = 18),
+                  axis.text = element_text(color = "white" , family = "sans") ,
+                  axis.text.x = element_text(size = 12))
+
+```
+
+
+
+
+
+# Översikt {data-orientation="rows"}
+## {data-height=200 .tabset .tabset-pills}
+### Om initiativet
+*Svensk statistik* är ett initiativ med det huvudsakliga syftet att visualisera utvecklingen i Sverige utifrån ett antal parametrar. Genom SCB är Sverige ett land som ligger i framkant i att lagra registerdata och föra annan statistik på befolkningsnivå, men denna statistik är inte alltid så enkel att ta till sig. Detta är ett försök att förenkla möjligheten att ta till sig av denna data.
+<br><br>
+
+## {data-height=400 .tabset .tabset-pills}
+### Om rapporten 
+I denna rapport bemöts området **Livsstil** utifrån dessa områden:
+<br><br>
+- **Välbefinnande**: Nöjdhet med livet och tillit till andra. <br>
+- **Trygghet**: Orolighet och utsatthet för våld. <br>
+- **Sociala relationer**: Vänskap, anhöriga och ensamhet. <br>
+- **Hälsa**: Hälsotillstånd, BMI, rökning/snusning.
+<br> <br>
+Använd navigationspanelen högst upp för att se svaren utifrån olika områden. *Får figurerna inte plats på sidan? Testa att zooma ut genom att hålla in `Ctrl` + `-`.*
+
+
+## {.tabset .tabset-pills}
+### Rapporter
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+  <a href="https://lindw3.github.io/svenskstatistik-demokrati/" target="_blank">
+    <img src="C:/Users/WILIDF17/OneDrive - Sveriges Riksidrottsförbund/Dokument/GitHub/svenskstatistik/bilder/demokrati.png" width="30%">
+  </a>
+  <a href="https://lindw3.github.io/svenskstatistik-arbete/" target="_blank">
+    <img src="C:/Users/WILIDF17/OneDrive - Sveriges Riksidrottsförbund/Dokument/GitHub/svenskstatistik/bilder/arbete.png" width="30%">
+  </a>
+  <a href="https://lindw3.github.io/svenskstatistik-demokrati/" target="_blank">
+    <img src="C:/Users/WILIDF17/OneDrive - Sveriges Riksidrottsförbund/Dokument/GitHub/svenskstatistik/bilder/livsstil.png" width="30%">
+  </a>
+</div>

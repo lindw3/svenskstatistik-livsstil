@@ -44,6 +44,81 @@ library(waffle)
 
 ```{r}
 ### Dataprep
+library(readxl)
+
+ # Hälsa
+hälsa_bakgrund <- read_excel("data/hälsa_bakgrund.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric"))
+
+hälsa_inkomst <- read_excel("data/hälsa_inkomst.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric"))
+
+hälsa_utbildning <- read_excel("data/hälsa_utbildning.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric"))
+
+hälsa_kön <- read_excel("data/hälsa_kön.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric"))
+
+hälsa_ålder <- read_excel("data/hälsa_ålder.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric"))
+
+
+ # Rökning och snusning
+rökningochsnusning_bakgrund <- read_excel("data/rökningochsnusning_bakgrund.xlsx")
+
+rökningochsnusning_inkomst <- read_excel("data/rökningochsnusning_inkomst.xlsx")
+
+rökningochsnusning_kön <- read_excel("data/rökningochsnusning_kön.xlsx")
+
+rökningochsnusning_utbildning <- read_excel("data/rökningochsnusning_utbildning.xlsx")
+
+rökningochsnusning_ålder <- read_excel("data/rökningochsnusning_ålder.xlsx")
+
+
+ # Sociala relationer
+socialarelationer_bakgrund <- read_excel("data/socialarelationer_bakgrund.xlsx")
+
+socialarelationer_inkomst <- read_excel("data/socialarelationer_inkomst.xlsx")
+
+socialarelationer_kön <- read_excel("data/socialarelationer_kön.xlsx")
+
+socialarelationer_utbildning <- read_excel("data/socialarelationer_utbildning.xlsx")
+
+socialarelationer_ålder <- read_excel("data/socialarelationer_ålder.xlsx")
+
+
+ # Trygghet
+trygghet_bakgrund <- read_excel("data/trygghet_bakgrund.xlsx")
+
+trygghet_inkomst <- read_excel("data/trygghet_inkomst.xlsx")
+
+trygghet_kön <- read_excel("data/trygghet_kön.xlsx", 
+    col_types = c("text", "text", "text", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric"))
+
+trygghet_utbildning <- read_excel("data/trygghet_utbildning.xlsx")
+
+trygghet_ålder <- read_excel("data/trygghet_ålder.xlsx")
+
+
+ # Välbefinnande
+välbefinnande_bakgrund <- read_excel("data/välbefinnande_bakgrund.xlsx")
+
+välbefinnande_inkomst <- read_excel("data/välbefinnande_inkomst.xlsx")
+
+välbefinnande_kön <- read_excel("data/välbefinnande_kön.xlsx")
+
+välbefinnande_utbildning <- read_excel("data/välbefinnande_utbildning.xlsx")
+
+välbefinnande_ålder <- read_excel("data/välbefinnande_ålder.xlsx")
+
 
 
 

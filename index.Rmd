@@ -80,17 +80,6 @@ rökningochsnusning_utbildning <- read_excel("data/rökningochsnusning_utbildnin
 rökningochsnusning_ålder <- read_excel("data/rökningochsnusning_ålder.xlsx")
 
 
- # Sociala relationer
-socialarelationer_bakgrund <- read_excel("data/socialarelationer_bakgrund.xlsx")
-
-socialarelationer_inkomst <- read_excel("data/socialarelationer_inkomst.xlsx")
-
-socialarelationer_kön <- read_excel("data/socialarelationer_kön.xlsx")
-
-socialarelationer_utbildning <- read_excel("data/socialarelationer_utbildning.xlsx")
-
-socialarelationer_ålder <- read_excel("data/socialarelationer_ålder.xlsx")
-
 
  # Trygghet
 trygghet_bakgrund <- read_excel("data/trygghet_bakgrund.xlsx")
@@ -158,9 +147,9 @@ ss_theme <- theme(plot.background = element_rect(fill = "#EB6864") ,
 I denna rapport bemöts området **Livsstil** utifrån dessa områden:
 <br><br>
 - **Välbefinnande**: Nöjdhet med livet och tillit till andra. <br>
-- **Trygghet**: Orolighet och utsatthet för våld. <br>
-- **Sociala relationer**: Vänskap, anhöriga och ensamhet. <br>
-- **Hälsa**: Hälsotillstånd, BMI, rökning/snusning.
+- **Hälsa**: Allmän hälsa, sjukdom och änglan, oro och ångest. <br>
+- **Rökning och snusning**: Daglig rökning och snusning. <br>
+- **Trygghet**: Rädsla för att gå ut och utsatthet för våld och hot.
 <br> <br>
 Använd navigationspanelen högst upp för att se svaren utifrån olika områden. *Får figurerna inte plats på sidan? Testa att zooma ut genom att hålla in `Ctrl` + `-`.*
 
@@ -195,7 +184,7 @@ välbefinnande_kön %>%
   ggplot(aes(x = Kön , y = `2024-2024` ,
              text = paste(Kön , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Kön") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_nöjdmedlivet_kön
@@ -212,7 +201,7 @@ välbefinnande_kön %>%
   ggplot(aes(x = Kön , y = `2024-2024` ,
              text = paste(Kön , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Kön") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_tillit_kön
@@ -232,7 +221,7 @@ välbefinnande_ålder %>%
   ggplot(aes(x = Ålder , y = `2024-2024` ,
              text = paste(Ålder , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Ålder") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_nöjdmedlivet_ålder
@@ -249,7 +238,7 @@ välbefinnande_ålder %>%
   ggplot(aes(x = Ålder , y = `2024-2024` ,
              text = paste(Ålder , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Ålder") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_tillit_ålder
@@ -275,7 +264,7 @@ välbefinnande_utbildning %>%
   ggplot(aes(x = factor(Utbildning , levels = levels) , y = `2024-2024` ,
              text = paste(Utbildning , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Utbildning") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   ss_theme +
   theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
@@ -294,7 +283,7 @@ välbefinnande_utbildning %>%
   ggplot(aes(x = factor(Utbildning, levels = levels) , y = `2024-2024` ,
              text = paste(Utbildning , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Utbildning") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme +  
@@ -317,7 +306,7 @@ välbefinnande_inkomst %>%
   ggplot(aes(x = Inkomst , y = `2024-2024` ,
              text = paste(Inkomst , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Inkomst") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_nöjdmedlivet_inkomst
@@ -334,7 +323,7 @@ välbefinnande_inkomst %>%
   ggplot(aes(x = Inkomst , y = `2024-2024` ,
              text = paste(Inkomst , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Inkomst") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_tillit_inkomst
@@ -357,7 +346,7 @@ välbefinnande_bakgrund %>%
   ggplot(aes(x = Bakgrund , y = `2024-2024` ,
              text = paste(Bakgrund , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Bakgrund") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_nöjdmedlivet_bakgrund
@@ -374,7 +363,7 @@ välbefinnande_bakgrund %>%
   ggplot(aes(x = Bakgrund , y = `2024-2024` ,
              text = paste(Bakgrund , "\nMedelvärde: " , `2024-2024`))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Bakgrund") + ylab("Medelvärde") +
+  ylab("Medelvärde") + xlab(NULL) +
   labs(fill = "Välbefinnande") +
   scale_y_continuous(breaks = seq(0 , 10, 2) , limits = c(0 , 10)) +
   ss_theme  -> p_tillit_bakgrund
@@ -396,23 +385,6 @@ ggplotly(p_tillit_bakgrund, tooltip = "text") %>%
 
 # Hälsa utifrån kön {data-navmenu="Hälsa" data-orientation="columns"}
 ## {.tabset .tabset-pills}
-### Upplevd dålig hälsa
-```{r}
-hälsa_kön %>% 
-  filter(Indikator == "Dålig hälsa" ,
-         Kön != "Totalt") %>% 
-  ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
-             text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
-  geom_col(fill = "#ffb1b1") +
-  xlab("Kön") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  ss_theme  -> p_dålighälsa_kön
-
-ggplotly(p_dålighälsa_kön, tooltip = "text") %>%
-  config(displayModeBar = F)
-```
-
-## {.tabset .tabset-pills}
 ### Långvarig sjukdom eller hälsoproblem
 ```{r}
 hälsa_kön %>% 
@@ -421,8 +393,10 @@ hälsa_kön %>%
   ggplot(aes(x = Kön , y = `2024-2024` / 100,
              text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  xlab("Kön") + ylab("Andel") +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.55) ,
+                     breaks = seq(0 , 0.5 , 0.1)) +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_hälsoproblem_kön
 
 ggplotly(p_hälsoproblem_kön, tooltip = "text") %>%
@@ -438,33 +412,38 @@ hälsa_kön %>%
   ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
              text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  xlab("Kön") + ylab("Andel") +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.55)  ,
+                     breaks = seq(0 , 0.5 , 0.1)) +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_ångest_kön
 
 ggplotly(p_ångest_kön, tooltip = "text") %>%
   config(displayModeBar = F)
 ```
 
-
-
-# Hälsa utifrån ålder {data-navmenu="Hälsa" data-orientation="columns"}
 ## {.tabset .tabset-pills}
 ### Upplevd dålig hälsa
 ```{r}
-hälsa_ålder %>% 
-  filter(Indikator == "Dålig hälsa") %>% 
-  ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
-             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+hälsa_kön %>% 
+  filter(Indikator == "Dålig hälsa" ,
+         Kön != "Totalt") %>% 
+  ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
+             text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Ålder") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  ss_theme  -> p_dålighälsa_ålder
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.55)  ,
+                     breaks = seq(0 , 0.5 , 0.1)) +
+  ss_theme  -> p_dålighälsa_kön
 
-ggplotly(p_dålighälsa_ålder, tooltip = "text") %>%
+ggplotly(p_dålighälsa_kön, tooltip = "text") %>%
   config(displayModeBar = F)
 ```
 
+
+
+# Hälsa utifrån ålder {data-navmenu="Hälsa" data-orientation="columns"}
 ## {.tabset .tabset-pills}
 ### Långvarig sjukdom eller hälsoproblem
 ```{r}
@@ -473,8 +452,9 @@ hälsa_ålder %>%
   ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
              text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Ålder") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.6)) +
   ss_theme  -> p_hälsoproblem_ålder
 
 ggplotly(p_hälsoproblem_ålder, tooltip = "text") %>%
@@ -489,41 +469,36 @@ hälsa_ålder %>%
   ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
              text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  xlab("Ålder") + ylab("Andel") +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.6)) +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_ångest_ålder
 
 ggplotly(p_ångest_ålder, tooltip = "text") %>%
   config(displayModeBar = F)
 ```
 
+## {.tabset .tabset-pills}
+### Upplevd dålig hälsa
+```{r}
+hälsa_ålder %>% 
+  filter(Indikator == "Dålig hälsa") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.6)) +
+  ss_theme  -> p_dålighälsa_ålder
+
+ggplotly(p_dålighälsa_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
 
 
 
 
 # Hälsa utifrån utbildning {data-navmenu="Hälsa" data-orientation="columns"}
-## {.tabset .tabset-pills}
-### Upplevd dålig hälsa
-```{r}
-levels = c("Förgymnasial utbildning" , 
-           "Gymnasial utbildning" ,
-           "Eftergymnasial utbildning, kortare än 3 år" ,
-           "Eftergymnasial utbildning, 3 år eller längre")
-
-hälsa_utbildning %>% 
-  filter(Indikator == "Dålig hälsa") %>% 
-  ggplot(aes(x = factor(Utbildning , levels) , y = `2024-2024` / 100 ,
-             text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
-  geom_col(fill = "#ffb1b1") +
-  xlab("Utbildning") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
-  ss_theme  -> p_dålighälsa_utbildning
-
-ggplotly(p_dålighälsa_utbildning, tooltip = "text") %>%
-  config(displayModeBar = F)
-```
-
 ## {.tabset .tabset-pills}
 ### Långvarig sjukdom eller hälsoproblem
 ```{r}
@@ -532,8 +507,9 @@ hälsa_utbildning %>%
   ggplot(aes(x = factor(Utbildning, levels = levels) , y = `2024-2024` / 100 ,
              text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Utbildning") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
   theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
   ss_theme  -> p_hälsoproblem_utbildning
 
@@ -549,36 +525,43 @@ hälsa_utbildning %>%
   ggplot(aes(x = factor(Utbildning, levels = levels) , y = `2024-2024` / 100 ,
              text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
   theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
-  xlab("Utbildning") + ylab("Andel") +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_ångest_utbildning
 
 ggplotly(p_ångest_utbildning, tooltip = "text") %>%
   config(displayModeBar = F)
 ```
 
+## {.tabset .tabset-pills}
+### Upplevd dålig hälsa
+```{r}
+levels = c("Förgymnasial utbildning" , 
+           "Gymnasial utbildning" ,
+           "Eftergymnasial utbildning, kortare än 3 år" ,
+           "Eftergymnasial utbildning, 3 år eller längre")
+
+hälsa_utbildning %>% 
+  filter(Indikator == "Dålig hälsa") %>% 
+  ggplot(aes(x = factor(Utbildning , levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  ss_theme  -> p_dålighälsa_utbildning
+
+ggplotly(p_dålighälsa_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
 
 
 
 
 # Hälsa utifrån inkomst {data-navmenu="Hälsa" data-orientation="columns"}
-## {.tabset .tabset-pills}
-### Upplevd dålig hälsa
-```{r}
-hälsa_inkomst %>% 
-  filter(Indikator == "Dålig hälsa") %>% 
-  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
-             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
-  geom_col(fill = "#ffb1b1") +
-  xlab("Inkomst") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  ss_theme  -> p_dålighälsa_inkomst
-
-ggplotly(p_dålighälsa_inkomst, tooltip = "text") %>%
-  config(displayModeBar = F)
-```
-
 ## {.tabset .tabset-pills}
 ### Långvarig sjukdom eller hälsoproblem
 ```{r}
@@ -587,8 +570,9 @@ hälsa_inkomst %>%
   ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
              text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Inkomst") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
   ss_theme  -> p_hälsoproblem_inkomst
 
 ggplotly(p_hälsoproblem_inkomst, tooltip = "text") %>%
@@ -603,35 +587,36 @@ hälsa_inkomst %>%
   ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
              text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  xlab("Inkomst") + ylab("Andel") +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_ångest_inkomst
 
 ggplotly(p_ångest_inkomst, tooltip = "text") %>%
   config(displayModeBar = F)
 ```
 
+## {.tabset .tabset-pills}
+### Upplevd dålig hälsa
+```{r}
+hälsa_inkomst %>% 
+  filter(Indikator == "Dålig hälsa") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_dålighälsa_inkomst
+
+ggplotly(p_dålighälsa_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
 
 
 
 
 # Hälsa utifrån bakgrund {data-navmenu="Hälsa" data-orientation="columns"}
-## {.tabset .tabset-pills}
-### Upplevd dålig hälsa
-```{r}
-hälsa_bakgrund %>% 
-  filter(Indikator == "Dålig hälsa") %>% 
-  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
-             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
-  geom_col(fill = "#ffb1b1") +
-  xlab("Bakgrund") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  ss_theme  -> p_dålighälsa_bakgrund
-
-ggplotly(p_dålighälsa_bakgrund, tooltip = "text") %>%
-  config(displayModeBar = F)
-```
-
 ## {.tabset .tabset-pills}
 ### Långvarig sjukdom eller hälsoproblem
 ```{r}
@@ -640,8 +625,9 @@ hälsa_bakgrund %>%
   ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
              text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  xlab("Bakgrund") + ylab("Andel") +
-  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
   ss_theme  -> p_hälsoproblem_bakgrund
 
 ggplotly(p_hälsoproblem_bakgrund, tooltip = "text") %>%
@@ -656,10 +642,551 @@ hälsa_bakgrund %>%
   ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
              text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
   geom_col(fill = "#ffb1b1") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  xlab("Bakgrund") + ylab("Andel") +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
+  ylab("Andel") + xlab(NULL) +
   ss_theme  -> p_ångest_bakgrund
 
 ggplotly(p_ångest_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Upplevd dålig hälsa
+```{r}
+hälsa_bakgrund %>% 
+  filter(Indikator == "Dålig hälsa") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() , 
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_dålighälsa_bakgrund
+
+ggplotly(p_dålighälsa_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+
+
+
+
+# Rökning och snusning utifrån kön {data-navmenu="Rökning och snusning" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Röker dagligen
+
+```{r}
+rökningochsnusning_kön %>% 
+  filter(Kön != "Totalt") %>% 
+  pivot_longer(!c(Indikator, Ålder, Kön) , 
+               values_to = "Andel" ,
+               names_to = "År") %>% 
+  filter(Indikator == "Röker dagligen") %>% 
+  ggplot(aes(x = År , y = Andel/100 , group = Kön , colour = Kön,
+             text = paste(År, "\n", Kön , "\nAndel: " , Andel, "%"))) +
+  geom_line(linewidth = 1) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5), 
+                     labels = scales::percent_format(accuracy = 1)) +
+  scale_x_discrete(breaks = c("2008-2009" , "2024-2024") ,
+                   labels = c("2008" , "2024")) +
+  scale_color_manual(values = c("Kvinnor" = "#ffb1b1",
+                               "Män" = "#64b6ee")) +
+  ss_theme  -> p_rökerdagligen_kön
+
+ggplotly(p_rökerdagligen_kön, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Snusar dagligen
+```{r}
+rökningochsnusning_kön %>% 
+  filter(Kön != "Totalt") %>% 
+  pivot_longer(!c(Indikator, Ålder, Kön) , 
+               values_to = "Andel" ,
+               names_to = "År") %>% 
+  filter(Indikator == "Snusar dagligen") %>% 
+  ggplot(aes(x = År , y = Andel/100 , group = Kön , colour = Kön,
+             text = paste(År, "\n", Kön , "\nAndel: " , Andel, "%"))) +
+  geom_line(linewidth = 1) +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  scale_x_discrete(breaks = c("2008-2009" , "2024-2024") ,
+                   labels = c("2008" , "2024")) +
+  scale_color_manual(values = c("Kvinnor" = "#ffb1b1",
+                               "Män" = "#64b6ee")) +
+  ss_theme  -> p_snusardagligen_kön
+
+ggplotly(p_snusardagligen_kön, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+# Rökning och snusning utifrån ålder {data-navmenu="Rökning och snusning" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Röker dagligen
+
+```{r}
+rökningochsnusning_ålder %>% 
+  filter(Indikator == "Röker dagligen") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024`/100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_rökerdagligen_ålder
+
+ggplotly(p_rökerdagligen_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Snusar dagligen
+```{r}
+rökningochsnusning_ålder %>% 
+  filter(Indikator == "Snusar dagligen") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024`/100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_snusardagligen_ålder
+
+ggplotly(p_snusardagligen_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+# Rökning och snusning utifrån utbildningsnivå {data-navmenu="Rökning och snusning" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Röker dagligen
+
+```{r}
+levels = c("Förgymnasial utbildning" , 
+           "Gymnasial utbildning" ,
+           "Eftergymnasial utbildning, kortare än 3 år" ,
+           "Eftergymnasial utbildning, 3 år eller längre")
+
+rökningochsnusning_utbildning %>% 
+  filter(Indikator == "Röker dagligen") %>% 
+  ggplot(aes(x = factor(Utbildning , levels = levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024` , "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  ss_theme +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) -> p_rökerdagligen_utbildning
+
+ggplotly(p_rökerdagligen_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Snusar dagligen
+```{r}
+rökningochsnusning_utbildning %>% 
+  filter(Indikator == "Snusar dagligen") %>% 
+  ggplot(aes(x = factor(Utbildning , levels = levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024` , "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  ss_theme +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) -> p_snusardagligen_utbildning
+
+ggplotly(p_snusardagligen_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+
+ggplotly(p_tillit_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+# Rökning och snusning utifrån inkomst {data-navmenu="Rökning och snusning" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Röker dagligen
+
+```{r}
+rökningochsnusning_inkomst %>% 
+  filter(Indikator == "Röker dagligen") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_rökerdagligen_inkomst
+
+ggplotly(p_rökerdagligen_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Snusar dagligen
+```{r}
+rökningochsnusning_inkomst %>% 
+  filter(Indikator == "Snusar dagligen") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_snusardagligen_inkomst
+
+ggplotly(p_snusardagligen_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+# Rökning och snusning utifrån bakgrund {data-navmenu="Rökning och snusning" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Röker dagligen
+
+```{r}
+rökningochsnusning_bakgrund %>% 
+  filter(Indikator == "Röker dagligen") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_rökerdagligen_bakgrund
+
+ggplotly(p_rökerdagligen_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Snusar dagligen
+```{r}
+rökningochsnusning_bakgrund %>% 
+  filter(Indikator == "Snusar dagligen") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(limits = c(0, 0.5),  
+                     labels = scales::percent_format(accuracy = 1)) +
+  ss_theme  -> p_snusardagligen_bakgrund
+
+ggplotly(p_snusardagligen_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Trygghet utifrån kön {data-navmenu="Trygghet" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Avstått från att gå ut
+```{r}
+trygghet_kön %>% 
+  filter(Indikator == "Avstått från att gå ut" ,
+         Kön != "Totalt") %>% 
+  ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
+             text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_ejgåttut_kön
+
+ggplotly(p_ejgåttut_kön, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för hot
+```{r}
+trygghet_kön %>% 
+  filter(Indikator == "Utsatt för hot" ,
+         Kön != "Totalt") %>% 
+  ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
+             text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförhot_kön
+
+ggplotly(p_utsattförhot_kön, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för våld
+```{r}
+trygghet_kön %>% 
+  filter(Indikator == "Utsatt för våld" ,
+         Kön != "Totalt") %>% 
+  ggplot(aes(x = Kön , y = `2024-2024` / 100 ,
+             text = paste(Kön , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförvåld_kön
+
+ggplotly(p_utsattförvåld_kön, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+# Trygghet utifrån ålder {data-navmenu="Trygghet" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Avstått från att gå ut
+```{r}
+trygghet_ålder %>% 
+  filter(Indikator == "Avstått från att gå ut") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_ejgåttut_ålder
+
+ggplotly(p_ejgåttut_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för hot
+```{r}
+trygghet_ålder %>% 
+  filter(Indikator == "Utsatt för hot") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförhot_ålder
+
+ggplotly(p_utsattförhot_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för våld
+```{r}
+trygghet_ålder %>% 
+  filter(Indikator == "Utsatt för våld") %>% 
+  ggplot(aes(x = Ålder , y = `2024-2024` / 100 ,
+             text = paste(Ålder , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförvåld_ålder
+
+ggplotly(p_utsattförvåld_ålder, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+# Trygghet utifrån utbildning {data-navmenu="Trygghet" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Avstått från att gå ut
+
+```{r}
+levels = c("Förgymnasial utbildning" , 
+           "Gymnasial utbildning" ,
+           "Eftergymnasial utbildning, kortare än 3 år" ,
+           "Eftergymnasial utbildning, 3 år eller längre")
+
+trygghet_utbildning %>% 
+  filter(Indikator == "Avstått från att gå ut") %>% 
+  ggplot(aes(x = factor(Utbildning , levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  ss_theme  -> p_ejgåttut_utbildning
+
+ggplotly(p_ejgåttut_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för hot
+```{r}
+trygghet_utbildning %>% 
+  filter(Indikator == "Utsatt för hot") %>% 
+  ggplot(aes(x = factor(Utbildning , levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  ss_theme  -> p_utsattförhot_utbildning
+
+ggplotly(p_utsattförhot_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för våld
+```{r}
+trygghet_utbildning %>% 
+  filter(Indikator == "Utsatt för våld") %>% 
+  ggplot(aes(x = factor(Utbildning , levels) , y = `2024-2024` / 100 ,
+             text = paste(Utbildning , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1 , vjust = 1)) +
+  ss_theme  -> p_utsattförvåld_utbildning
+
+ggplotly(p_utsattförvåld_utbildning, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+# Trygghet utifrån inkomst {data-navmenu="Trygghet" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Avstått från att gå ut
+```{r}
+trygghet_inkomst %>% 
+  filter(Indikator == "Avstått från att gå ut") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_ejgåttut_inkomst
+
+ggplotly(p_ejgåttut_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för hot
+```{r}
+trygghet_inkomst %>% 
+  filter(Indikator == "Utsatt för hot") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförhot_inkomst
+
+ggplotly(p_utsattförhot_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för våld
+```{r}
+trygghet_inkomst %>% 
+  filter(Indikator == "Utsatt för våld") %>% 
+  ggplot(aes(x = Inkomst , y = `2024-2024` / 100 ,
+             text = paste(Inkomst , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförvåld_inkomst
+
+ggplotly(p_utsattförvåld_inkomst, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+
+
+
+
+# Trygghet utifrån bakgrund {data-navmenu="Trygghet" data-orientation="columns"}
+## {.tabset .tabset-pills}
+### Avstått från att gå ut
+```{r}
+trygghet_bakgrund %>% 
+  filter(Indikator == "Avstått från att gå ut") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_ejgåttut_bakgrund
+
+ggplotly(p_ejgåttut_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för hot
+```{r}
+trygghet_bakgrund %>% 
+  filter(Indikator == "Utsatt för hot") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförhot_bakgrund
+
+ggplotly(p_utsattförhot_bakgrund, tooltip = "text") %>%
+  config(displayModeBar = F)
+```
+
+## {.tabset .tabset-pills}
+### Utsatt för våld
+```{r}
+trygghet_bakgrund %>% 
+  filter(Indikator == "Utsatt för våld") %>% 
+  ggplot(aes(x = Bakgrund , y = `2024-2024` / 100 ,
+             text = paste(Bakgrund , "\nAndel: " , `2024-2024`, "%"))) +
+  geom_col(fill = "#ffb1b1") +
+  ylab("Andel") + xlab(NULL) +
+  scale_y_continuous(labels = scales::percent_format() ,
+                     limits = c(0 , 0.5)) +
+  ss_theme  -> p_utsattförvåld_bakgrund
+
+ggplotly(p_utsattförvåld_bakgrund, tooltip = "text") %>%
   config(displayModeBar = F)
 ```

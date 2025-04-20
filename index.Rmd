@@ -140,7 +140,6 @@ ss_theme <- theme(plot.background = element_rect(fill = "#EB6864") ,
 ## {data-height=250 .tabset .tabset-pills}
 ### Om initiativet
 *Svensk statistik* är ett initiativ med det huvudsakliga syftet att visualisera utvecklingen i Sverige utifrån ett antal parametrar. Genom SCB är Sverige ett land som ligger i framkant i att lagra registerdata och föra annan statistik på befolkningsnivå, men denna statistik är inte alltid så enkel att ta till sig. Detta är ett försök att förenkla möjligheten att ta till sig av denna data.
-<br><br>
 
 ## {data-height=375 .tabset .tabset-pills}
 ### Om rapporten 
@@ -466,7 +465,7 @@ hälsa_ålder %>%
   geom_col(fill = "#ffb1b1") +
   ylab("Andel") + xlab(NULL) +
   scale_y_continuous(labels = scales::percent_format() ,
-                     limits = c(0 , 0.6)) +
+                     limits = c(0 , 0.602)) +
   ss_theme  -> p_hälsoproblem_ålder
 
 ggplotly(p_hälsoproblem_ålder, tooltip = "text") %>%

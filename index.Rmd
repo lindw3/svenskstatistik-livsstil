@@ -137,12 +137,12 @@ ss_theme <- theme(plot.background = element_rect(fill = "#EB6864") ,
 
 
 # Översikt {data-orientation="rows"}
-## {data-height=200 .tabset .tabset-pills}
+## {data-height=250 .tabset .tabset-pills}
 ### Om initiativet
 *Svensk statistik* är ett initiativ med det huvudsakliga syftet att visualisera utvecklingen i Sverige utifrån ett antal parametrar. Genom SCB är Sverige ett land som ligger i framkant i att lagra registerdata och föra annan statistik på befolkningsnivå, men denna statistik är inte alltid så enkel att ta till sig. Detta är ett försök att förenkla möjligheten att ta till sig av denna data.
 <br><br>
 
-## {data-height=400 .tabset .tabset-pills}
+## {data-height=375 .tabset .tabset-pills}
 ### Om rapporten 
 I denna rapport bemöts området **Livsstil** utifrån dessa områden:
 <br><br>
@@ -154,18 +154,32 @@ I denna rapport bemöts området **Livsstil** utifrån dessa områden:
 Använd navigationspanelen högst upp för att se svaren utifrån olika områden. *Får figurerna inte plats på sidan? Testa att zooma ut genom att hålla in `Ctrl` + `-`.*
 
 
-## {.tabset .tabset-pills}
-### Källor
-- 1: Klicka här
-<br>
-- 2: Klicka här
-<br>
-- 3: Klicka här
-<br>
-- 4: Klicka här
-<br>
-- 5: Klicka här
-<br>
+## {data-height=375}
+###
+
+<a href="https://lindw3.github.io/svenskstatistik-demokrati/">
+```{r, echo=FALSE, out.width = "100%", out.height = "100%"}
+
+knitr::include_graphics('bilder/demokrati.png')
+```
+</a>
+
+
+###
+
+<a href="https://lindw3.github.io/svenskstatistik-arbete/">
+```{r, echo=FALSE, out.width = "100%", out.height = "100%"}
+knitr::include_graphics('bilder/arbete.png')
+```
+</a>
+
+###
+
+<a href="https://lindw3.github.io/svenskstatistik-livsstil/">
+```{r, echo=FALSE, out.width = "100%", out.height = "100%"}
+knitr::include_graphics('bilder/livsstil.png')
+```
+</a>
 
 
 

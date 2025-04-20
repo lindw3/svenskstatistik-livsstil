@@ -143,7 +143,7 @@ ss_theme <- theme(plot.background = element_rect(fill = "#EB6864") ,
 
 ## {data-height=375 .tabset .tabset-pills}
 ### Om rapporten 
-I denna rapport bemöts området **Livsstil** utifrån dessa områden:
+I denna rapport bemöts temat **Livsstil** utifrån dessa områden:
 <br><br>
 - **Välbefinnande**: Nöjdhet med livet och tillit till andra. <br>
 - **Hälsa**: Allmän hälsa, sjukdom och änglan, oro och ångest. <br>
